@@ -3,41 +3,34 @@
 <head>
   <title>Tab</title>
   <style>
-        html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-
-    .mycontainer {
+    body {
+      background-color: rgb(140, 190, 255);
       display: flex;
-      height: 100vh;
-      flex-wrap: wrap;
-    }
-
-    .column {
-      flex: 1;
-      display: flex;
+      justify-content: center;
       align-items: center;
+      min-height: 100vh;
     }
 
-    .left {
-      background-color: orange;
+    #ft_list {
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column-reverse;
     }
 
-    .right {
-      background-color: greenyellow;
+    .todo {
+      background: #fff;
+      border: 1px solid #aaa;
+      padding: 10px;
+      margin: 5px 0;
     }
+    
   </style>
 </head>
 <body>
-  <div class="mycontainer">
-    <div class="column left">
-      <h2>First cell</h2>
-    </div>
-    <div class="column right">
-      <h2>Second cell</h2>
-    </div>
-  </div>
+  <button id="NewBut">New</button>
+  <div id="ft_list"></div>
 </body>
 </html>
