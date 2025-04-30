@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tab</title>
+  <style>
+        html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .mycontainer {
+      display: flex;
+      height: 100vh;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .left {
+      background-color: orange;
+    }
+
+    .right {
+      background-color: greenyellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="mycontainer">
+    <div class="column left">
+      <h2>First cell</h2>
+    </div>
+    <div class="column right">
+      <h2>Second cell</h2>
+    </div>
+  </div>
+</body>
+</html>
