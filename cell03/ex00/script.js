@@ -5,6 +5,6 @@ function getRandomColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-function changeBackground() {
+function change() {
   document.body.style.backgroundColor = getRandomColor();
 }
