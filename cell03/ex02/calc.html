@@ -1,51 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Basics</title>
+<title>It's over 9000</title>
     <style>
-        body {background-color: pink;}
-        div.mycontainer {
-            width:100%;
-            overflow:auto;
+        body {
+            background-color: rgb(140, 190, 255);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        div.mycontainer div {
-            width:50%;  
-            float:left;
-        }
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .href {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        .p1 {
-            font-family: monospace;
-            
-        }
+
+
     </style>
 </head>
 <body>
 
-<p><h1 style="color: white; text-align: center; font-size: 50px;">&#128511;so bigger&#128039;</h1></p>
-<div class="mycontainer">
-
-    <div>
-        <p><a href="https://www.taobao.com/"><img src="https://cdn4.iconfinder.com/data/icons/chinas-social-share-icons/256/cssi_taobao-512.png" width="500" height="500"></a></p>
-        <p class="href"><a href="https://www.taobao.com/">taobao</a></p>
-    </div>
+    <input type="text" id="textleft" placeholder="number">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="textright" placeholder="number">
+    <button onclick="cal()">Try me!</button>
     
-    <div>
-        <p><a href="https://shopee.co.th/"><img src="https://freelogopng.com/images/all_img/1656180674shopee-logo-transparent.png" width="500" height="500"></a></p>
-        <p class="href"><a href="https://shopee.co.th/">shopee</a></p>
-    </div>
-  
-</div>
-<hr color="white">
-<p class="p3"><h4 style="text-align: right;" ><i>&copy;phpeeraw2025</i></h4></p>
+    <script>
+        function cal() {
+            const left = document.getElementById('textleft').value
+            const right = document.getElementById('textright').value
+            const oper = document.getElementById('operator').value
+            const numleft = parseInt(left) /*sting -> int*/
+            const numright = parseInt(right)
+
+            if (isNaN(numleft) || isNaN(numright) || numleft < 0 || numright < 0) {
+                alert("Error :(");
+                return;
+            }
+            
+            if((oper === "/" || oper === "%") && numright === 0){
+                alert("It's over 9000!");
+                console.log("It's over 9000!");
+                return;
+            }
+
+            let result; /*เก็บค่าผลลัพธ์ไว้ใช้ทีหลัง*/
+            switch (oper) {
+                case "+": result = numleft + numright; break
+                case "-": result = numleft - numright; break
+                case "*": result = numleft * numright; break
+                case "/": result = numleft / numright; break
+                case "%": result = numleft % numright; break
+                default: result = "Unknown operator";
+            }
+
+            alert("Result: " + result);
+            console.log("Result: " + result);
+            setInterval(() => {alert("Please, use me...")}, 30000);
+
+        }
+    </script>
+
 </body>
 </html>
