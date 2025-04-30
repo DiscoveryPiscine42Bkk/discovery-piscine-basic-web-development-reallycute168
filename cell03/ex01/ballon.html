@@ -22,7 +22,9 @@
       height: 200px;
       width: 200px;
       background-color: red;
-      border-radius: 50%;
+      border-radius: 100%;
+      min-width: 200px;
+      min-height: 200px;
     }
 
     #click{
@@ -37,17 +39,43 @@
 </head>
 <body>
   <div class="column"> 
-    <button class="box" onclick="clickdown()" id="myDIV"></button>
+    <button class="box" onclick="changecolors() , bigger()" onmouseleave="smaller() ,revcolors()" id="myDIV"></button>
   </div>
   <script>
-    var colors = ["red","green", "blue"]
+    
+    var colors = ["green", "blue", "red"]
+    var revcolor = ["red", "blue" , "green"]
     var colorIndex = 0;
-    function clickdown(){
+    function bigger(){
+      const circle = document.getElementById("myDIV");
+      const size = circle.clientWidth;
+      circle.style.width = size + 10 +"px";
+      circle.style.height = size + 10 +"px";
+      if (size >= 420){
+        circle.style.width = "200px";
+        circle.style.height = "200px";
+      }
+    }
+    function smaller(){
+      const circle = document.getElementById("myDIV");
+      const size = circle.clientWidth;
+      circle.style.width = size - 5 +"px";
+      circle.style.height = size - 5 +"px";
+    }
+    function changecolors(){
       var col= document.getElementById("myDIV")
       if(colorIndex >= colors.length){
         colorIndex = 0;
       }
       col.style.backgroundColor = colors[colorIndex];
+      colorIndex++;
+    }
+    function revcolors(){
+      var col= document.getElementById("myDIV")
+      if(colorIndex >= revcolor.length){
+        colorIndex = 0;
+      }
+      col.style.backgroundColor = revcolor[colorIndex];
       colorIndex++;
     }
   </script>
