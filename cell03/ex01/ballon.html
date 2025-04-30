@@ -6,6 +6,10 @@
         html, body {
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .column {
@@ -14,16 +18,38 @@
       align-items: center;
     }
 
-    div {
+    .box {
       height: 200px;
       width: 200px;
       background-color: red;
       border-radius: 50%;
     }
 
+    #click{
+    padding: 1rem 1rem;
+    border:none;
+    border-radius: 10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
   </style>
 </head>
 <body>
-  <div class="column box"> </div>
+  <div class="column"> 
+    <button class="box" onclick="clickdown()" id="myDIV"></button>
+  </div>
+  <script>
+    var colors = ["red","green", "blue"]
+    var colorIndex = 0;
+    function clickdown(){
+      var col= document.getElementById("myDIV")
+      if(colorIndex >= colors.length){
+        colorIndex = 0;
+      }
+      col.style.backgroundColor = colors[colorIndex];
+      colorIndex++;
+    }
+  </script>
 </body>
 </html>
