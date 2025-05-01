@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>It's over 9000</title>
+    <style>
+        body {
+            background-color: rgb(140, 190, 255);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <input type="text" id="textleft" placeholder="number">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="textright" placeholder="number">
+    <button onclick="cal()">Try me!</button>
+    
+    <script>
+        function cal() {
+            const left = document.getElementById('textleft').value
+            const right = document.getElementById('textright').value
+            const oper = document.getElementById('operator').value
+            const numleft = parseInt(left) /*sting -> int*/
+            const numright = parseInt(right)
+
+            if (isNaN(numleft) || isNaN(numright) || numleft < 0 || numright < 0) {
+                alert("Error :(");
+                return;
+            }
+            
+            if((oper === "/" || oper === "%") && numright === 0){
+                alert("It's over 9000!");
+                console.log("It's over 9000!");
+                return;
+            }
+
+            let result; /*เก็บค่าผลลัพธ์ไว้ใช้ทีหลัง*/
+            switch (oper) {
+                case "+": result = numleft + numright; break
+                case "-": result = numleft - numright; break
+                case "*": result = numleft * numright; break
+                case "/": result = numleft / numright; break
+                case "%": result = numleft % numright; break
+                default: result = "Unknown operator";
+            }
+
+            alert("Result: " + result);
+            console.log("Result: " + result);
+            setInterval(() => {alert("Please, use me...")}, 30000);
+
+        }
+    </script>
+
+</body>
+</html>

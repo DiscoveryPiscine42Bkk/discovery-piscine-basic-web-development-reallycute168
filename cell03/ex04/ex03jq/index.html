@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To do or not to do</title>
+  <style>
+    body {
+      background-color: rgb(159, 207, 188);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding:  20px;
+    }
+
+    #ft_list {
+      padding: 10px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .todo {
+      display: flex;
+      background: #fff;
+      padding: 10px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <h1>To do List</h1>
+  <button id="newbtn" class="newbe" onclick="addtask()">New</button>
+  <div id="ft_list">
+
+  </div>
+
+  <script src="todo.js"></script>
+</body>
+</html>
