@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tab</title>
+  <title>To do or not to do</title>
   <style>
     body {
-      background-color: rgb(140, 190, 255);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      background-color: rgb(159, 207, 188);
+
     }
 
     #ft_list {
@@ -27,11 +24,15 @@
       margin: 5px 0;
     }
 
+
   </style>
 </head>
 <body>
-  <button id="NewButt">New</button>
-  <div id="ft_list"></div>
+  <h1>To do List</h1>
+  <button id="newbtn" class="newbe" onclick="addtask()">New</button>
+  <div id="ft_list">
+
+  </div>
 
   <script src="todo.js"></script>
 </body>
