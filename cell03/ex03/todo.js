@@ -27,7 +27,7 @@ window.onload = function () /*work after loading all*/{
       ftList.appendChild(todo);
     }
 
-    function saveTask() {
+    function saveTodos() {
       const task = [];
       const taskElements = document.querySelectorAll('#ft_list .todo');
       taskElements.forEach(todo => task.push(todo.textContent));
