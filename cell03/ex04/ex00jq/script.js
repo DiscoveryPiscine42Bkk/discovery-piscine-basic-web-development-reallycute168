@@ -10,7 +10,6 @@ function change() {
   $("body").css("background-color", getRandomColor());
 }
 
-// เรียกใช้ change เมื่อคลิกปุ่ม
 $(document).ready(function() {
   $("#changeColorBtn").click(change);
 });

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Explode this ballon</title>
+  <title>Explode this balloon</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
-        html, body {
+    html, body {
       margin: 0;
       padding: 0;
       display: flex;
@@ -16,6 +17,7 @@
       flex: 1;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     .box {
@@ -23,61 +25,73 @@
       width: 200px;
       background-color: red;
       border-radius: 100%;
-      min-width: 200px;
-      min-height: 200px;
+      border: none;
+      cursor: pointer;
+      padding: 0;
     }
-
-    #click{
-    padding: 1rem 1rem;
-    border:none;
-    border-radius: 10px;
-    cursor:pointer;
-    font-size:16px;
-}
-
   </style>
 </head>
 <body>
   <div class="column"> 
-    <button class="box" onclick="changecolors() , bigger()" onmouseleave="smaller() ,revcolors()" id="myDIV"></button>
+    <button class="box" id="myDIV"></button>
   </div>
+
   <script>
-    
-    var colors = ["green", "blue", "red"]
-    var revcolor = ["red", "blue" , "green"]
-    var colorIndex = 0;
-    function bigger(){
-      const circle = document.getElementById("myDIV");
-      const size = circle.clientWidth;
-      circle.style.width = size + 10 +"px";
-      circle.style.height = size + 10 +"px";
-      if (size >= 420){
-        circle.style.width = "200px";
-        circle.style.height = "200px";
+    $(document).ready(function() {
+      var colors = ["green", "blue", "red"];
+      var revcolor = ["red", "blue", "green"];
+      var colorIndex = 0;
+
+      function bigger() {
+        var $circle = $("#myDIV");
+        var size = $circle.outerWidth();
+        var newSize = size + 10;
+        if (newSize >= 420) {
+          newSize = 200;
+        }
+        $circle.css({
+          width: newSize + "px",
+          height: newSize + "px"
+        });
       }
-    }
-    function smaller(){
-      const circle = document.getElementById("myDIV");
-      const size = circle.clientWidth;
-      circle.style.width = size - 5 +"px";
-      circle.style.height = size - 5 +"px";
-    }
-    function changecolors(){
-      var col= document.getElementById("myDIV")
-      if(colorIndex >= colors.length){
-        colorIndex = 0;
+
+      function smaller() {
+        var $circle = $("#myDIV");
+        var size = $circle.outerWidth();
+        var newSize = size - 5;
+        if (newSize < 200) newSize = 200;
+        $circle.css({
+          width: newSize + "px",
+          height: newSize + "px"
+        });
       }
-      col.style.backgroundColor = colors[colorIndex];
-      colorIndex++;
-    }
-    function revcolors(){
-      var col= document.getElementById("myDIV")
-      if(colorIndex >= revcolor.length){
-        colorIndex = 0;
+
+      function changecolors() {
+        if (colorIndex >= colors.length) {
+          colorIndex = 0;
+        }
+        $("#myDIV").css("background-color", colors[colorIndex]);
+        colorIndex++;
       }
-      col.style.backgroundColor = revcolor[colorIndex];
-      colorIndex++;
-    }
+
+      function revcolors() {
+        if (colorIndex >= revcolor.length) {
+          colorIndex = 0;
+        }
+        $("#myDIV").css("background-color", revcolor[colorIndex]);
+        colorIndex++;
+      }
+
+      $("#myDIV").on("click", function() {
+        changecolors();
+        bigger();
+      });
+
+      $("#myDIV").on("mouseleave", function() {
+        smaller();
+        revcolors();
+      });
+    });
   </script>
 </body>
 </html>
